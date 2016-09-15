@@ -1,0 +1,5 @@
+include_recipe 'kafka-topics-ui::packages'
+include_recipe 'nodejs'
+include_recipe 'kafka-topics-ui::install'
+include_recipe 'kafka-topics-ui::configure'
+include_recipe 'kafka-topics-ui::nginx'

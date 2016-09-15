@@ -1,0 +1,12 @@
+server {
+  listen 8084;
+
+  location / {
+    try_files $uri $uri/ /index.html =404;
+    root /<%= node['kafka-topics-ui']['path'] %>/kafka-topics-ui/;
+    <% if @use_auth_basic -%>
+    auth_basic "Private Property";
+    auth_basic_user_file <%= node['kafka-topics-ui']['htpasswd']['path'] %>;
+    <% end -%>
+  }
+}
